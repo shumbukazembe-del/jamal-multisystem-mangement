@@ -22,3 +22,100 @@ see  remove everyhting  in current setting and  we  need the  following  in sett
 4. phone number
 5. email    for  login user only use the login with email
 
+
+income statement must be like so
+
+Operation	Details	Amount (TZS)	Amount (TZS)	Result (TZS)
+	Sales (Turnover / Revenue)		xxx	
+Less	Sales Returns (Returns Inwards)		xxx	
+	Net Sales			xxx
+Less	Cost of Goods Sold:			
+	Opening Stock (Inventory)		xxx	
+Add	Purchases	xxx		
+Less	Purchases Returns (Returns Outwards)	xxx		
+	Net Purchases	xxx		
+Add	Carriage Inwards	xxx		
+Add	Customs / Import Duty	xxx		
+Add	Direct Wages / Manufacturing Costs	xxx	xxx	
+	Cost of Goods Available for Sale			xxx
+Less	Closing Stock (Inventory)		xxx	
+	Cost of Goods Sold			xxx
+	Gross Profit			xxx
+Add	Other Incomes:			
+	Discount Received	xxx		
+	Commission Received	xxx		
+	Rent Received	xxx		
+	Interest Received	xxx		
+	Dividends Received	xxx		
+	Royalties Received	xxx		
+	Bad Debts Recovered	xxx		
+	Decrease in Provision for Doubtful Debts	xxx		
+	Profit on Disposal of Non-Current Assets	xxx	xxx	
+	Total Gross Income			xxx
+Less	Operating & Administrative Expenses:			
+	Rent and Rates	xxx		
+	Salaries and Wages	xxx		
+	Electricity, Gas and Water	xxx		
+	Carriage Outwards	xxx		
+	Discount Allowed	xxx		
+	General / Office Expenses	xxx		
+	Postage, Telephone and Internet	xxx		
+	Printing and Stationery	xxx		
+	Advertising, Marketing and Publicity	xxx		
+	Insurance	xxx		
+	Repairs and Maintenance	xxx		
+	Motor Vehicle Running Expenses	xxx		
+	Travelling and Entertainment	xxx		
+	Cleaning and Security	xxx		
+	Subscriptions and Donations	xxx		
+	Bank Charges	xxx		
+	Audit and Accountancy Fees	xxx		
+	Legal and Professional Fees	xxx		
+	Directors' Remuneration / Fees	xxx		
+	Bad Debts Written Off	xxx		
+	Increase in Provision for Doubtful Debts	xxx		
+	Loss on Disposal of Non-Current Assets	xxx		
+	Depreciation of Non-Current Assets	xxx		
+	Amortization of Intangible Assets	xxx	xxx	
+	Operating Profit (EBIT)			xxx
+Less	Finance Costs:			
+	Interest on Bank Loan	xxx		
+	Interest on Bank Overdraft	xxx		
+	Debenture Interest	xxx	xxx	
+	Net Profit Before Tax (EBT)			xxx
+Less	Corporate / Income Tax Expense		xxx	
+	Net Profit After Tax			xxx
+Add	Retained Profit Brought Forward (Opening Balance)			xxx
+	Total Profit Available for Appropriation			xxx
+Less	Appropriations:			
+	Transfer to General Reserve	xxx		
+	Transfer to Capital / Other Reserves	xxx		
+	Preference Share Dividends (Interim & Final)	xxx		
+	Ordinary Share Dividends (Interim & Final)	xxx	xxx	
+	Retained Profit Carried Forward			xxx
+
+
+
+balance sheet also like 
+Capital & Liabilities	Amount (TZS)	Amount (TZS)	Assets	Amount (TZS)	Amount (TZS)
+Capital & Reserves (Equity):			Non-Current Assets (Fixed Assets):	Cost - Dep.	NBV
+Opening Capital / Share Capital	xxx		Land and Buildings	xxx - xxx	xxx
+Add: Additional Capital / Share Premium	xxx		Plant and Machinery	xxx - xxx	xxx
+Add: General & Other Reserves	xxx		Motor Vehicles	xxx - xxx	xxx
+Add: Retained Profit (Net Profit)	xxx		Furniture, Fixtures & Fittings	xxx - xxx	xxx
+Subtotal	xxx		Office Equipment & Computers	xxx - xxx	xxx
+Less: Drawings	(xxx)	xxx	Goodwill & Intangible Assets	xxx - xxx	xxx
+			Long-Term Investments		xxx
+Non-Current Liabilities:			Total Non-Current Assets		xxx
+Long-Term Bank Loan	xxx				
+Mortgage Loan	xxx		Current Assets:		
+Debentures	xxx	xxx	Closing Stock (Inventory)		xxx
+			Trade Debtors (Receivables)	xxx	
+Current Liabilities:			Less: Provision for Doubtful Debts	(xxx)	xxx
+Trade Creditors (Payables)	xxx		Prepaid Expenses		xxx
+Accrued Expenses	xxx		Accrued Income		xxx
+Prepaid Income (Unearned)	xxx		Short-Term Investments		xxx
+Bank Overdraft	xxx		Cash at Bank		xxx
+Short-Term Loan	xxx		Cash in Hand		xxx
+Tax & Dividends Payable	xxx	xxx	Total Current Assets		xxx
+TOTAL CAPITAL & LIABILITIES		xxx	TOTAL ASSETS		xxx
