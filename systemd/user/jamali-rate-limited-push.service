@@ -1,6 +1,0 @@
-[Unit]
-Description=JAMALI rate-limited Git push
-
-[Service]
-Type=oneshot
-ExecStart=%h/jamal/scripts/jamali-rate-limited-push.sh
