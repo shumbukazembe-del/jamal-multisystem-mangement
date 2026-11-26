@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Discharge — JAMALI Health</title>
+<link rel="stylesheet" href="/patient-discharge/350.css">
+<script type="module" src="/sidebar.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <p class="p-boot" id="p-boot" hidden></p>
+  <p class="p-err" id="p-err" hidden></p>
+
+  <a class="back" href="/health/321">&larr; Health</a>
+  <h1>Patient Discharge</h1>
+  <p class="sub">Manage the authorized end of an inpatient stay: the clinical discharge decision, the checklist, the medication and instructions, and the final confirmation that releases the bed &mdash; without ever deleting the patient or the history behind them.</p>
+
+  <div class="emg-note">🚨 Emergency treatment must never be delayed by discharge paperwork or bed-release steps.</div>
+
+  <div class="dash-grid" id="dash">
+    <div class="dash warn"><b id="x-open">0</b><span>Active discharge processes</span></div>
+    <div class="dash warn"><b id="x-pend">0</b><span>Awaiting authorization</span></div>
+    <div class="dash info"><b id="x-prog">0</b><span>In progress / awaiting steps</span></div>
+    <div class="dash good"><b id="x-today">0</b><span>Discharged today</span></div>
+    <div class="dash mute"><b id="x-total">0</b><span>Discharges on record</span></div>
+  </div>
+
+  
+  <div class="card" id="qa-card">
+    <h2>Discharge queue</h2>
+    <div class="qa-counts">
+      <div class="qa-count"><span class="qa-num" id="qa-waiting">0</span><span class="qa-k">Patients waiting</span></div>
+      <div class="qa-count"><span class="qa-num" id="qa-done">0</span><span class="qa-k">Discharged today</span></div>
+    </div>
+    <div class="qa-panels">
+      <div class="qa-panel" id="qa-current-box">
+        <div class="qa-k">Current patient</div>
+        <div class="qa-id" id="qa-current-id">&mdash;</div>
+        <div class="qa-sub" id="qa-current-sub"></div>
+      </div>
+      <div class="qa-panel">
+        <div class="qa-k">Next patient</div>
+        <div class="qa-id" id="qa-next-id">&mdash;</div>
+        <div class="qa-sub" id="qa-next-sub"></div>
+        <div class="qa-sub" id="qa-dest-line"></div>
+        <div class="qa-btns">
+          <button type="button" class="ghost-btn qa-announce" id="qa-announce" disabled>&#128266; Announce patient</button>
+          <a class="ghost-btn" id="qa-open" hidden>Open discharge</a>
+        </div>
+      </div>
+    </div>
+    <p class="mini-note" id="qa-note"></p>
+    <div class="qa-actions"><button type="button" class="ghost-btn" id="qa-settings-btn">&#128266; Speaker settings</button></div>
+    
+  </div>
+
+  <div class="mod-grid">
+    <a class="mod" href="/start-discharge/351">
+      <span class="mod-ico">🚪</span>
+      <span class="mod-label">Start Discharge<span class="mod-sub">open a discharge for an inpatient</span></span>
+    </a>
+    <a class="mod" href="/discharge-list/352">
+      <span class="mod-ico">🗒️</span>
+      <span class="mod-label">Discharge List<span class="mod-sub">register &amp; search</span></span>
+    </a>
+    <a class="mod" href="/discharge-details/353">
+      <span class="mod-ico">🔎</span>
+      <span class="mod-label">Discharge Details<span class="mod-sub">authorize · checklist · confirm</span></span>
+    </a>
+    <a class="mod" href="/admission-list/342">
+      <span class="mod-ico">🧾</span>
+      <span class="mod-label">Admission List<span class="mod-sub">the admissions being ended</span></span>
+    </a>
+  </div>
+
+  <div class="card">
+    <h2>How the discharge half works</h2>
+    <p class="mini-note">
+      Starting a discharge never discharges anyone by itself. The responsible clinician authorizes it
+      (Approved for Discharge), the checklist is completed step by step, and only then can the discharge
+      be confirmed. Confirmation ends the active admission, releases the bed to <b>Cleaning Required</b> —
+      never straight to Available — and keeps every historical record. A patient who leaves a bed does not
+      automatically make the bed ready for the next patient.
+    </p>
+  </div>
+</main>
+<script type="module" src="/patient-discharge/350.js"></script>
+</body>
+</html>

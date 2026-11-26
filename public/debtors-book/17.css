@@ -1,0 +1,105 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { background: #f1f5f9; color: #0f172a; }
+.wrap { padding: 28px 34px; max-width: 1220px; margin: 0 auto; }
+.back { display: inline-block; color: #64748b; text-decoration: none; font-weight: 700; font-size: 13.5px; margin-bottom: 14px; }
+.back:hover { color: #0ea5e9; }
+h1 { font-size: 24px; margin-bottom: 6px; }
+.sub { color: #64748b; font-size: 14px; margin-bottom: 18px; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 6px 18px rgba(15, 23, 42, .06); }
+
+ 
+.table-wrap { overflow-x: auto; }
+table.bk { width: 100%; border-collapse: collapse; min-width: 820px; }
+thead th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #64748b; padding: 12px 14px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; background: #f8fafc; }
+thead th.amt, tbody td.c-amount, tfoot td.c-amount { text-align: right; }
+thead th:nth-child(4), thead th:nth-child(5) { border-right: 1px solid #e2e8f0; }
+tbody td:nth-child(4), tbody td:nth-child(5) { border-right: 1px solid #f1f5f9; }
+
+tbody td { padding: 11px 14px; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+.c-date { white-space: nowrap; color: #475569; }
+.c-detail { font-weight: 700; }
+.c-name { font-weight: 700; white-space: nowrap; }
+.c-amount { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+tfoot td { padding: 12px 14px; font-size: 14px; }
+tfoot .total-row td { border-top: 2px solid #0f172a; font-weight: 800; background: #f8fafc; }
+tfoot .total-row .c-amount { font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+ 
+.people-card { padding: 18px 20px; margin-top: 18px; }
+.people-card h2 { font-size: 15px; margin-bottom: 8px; }
+table.people { width: 100%; border-collapse: collapse; }
+table.people td { padding: 9px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+table.people tr:last-child td { border-bottom: 0; }
+table.people .c-name { font-weight: 700; }
+table.people .c-amount { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+ 
+.empty { padding: 46px 20px; text-align: center; }
+.empty-icon { font-size: 34px; margin-bottom: 10px; }
+.empty-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; }
+.empty-sub { color: #64748b; font-size: 14px; }
+
+.count-line { color: #94a3b8; font-size: 12.5px; margin-top: 12px; }
+@media (max-width: 640px) { .wrap { padding: 20px 14px; } }
+
+ 
+.head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.head-text { min-width: 0; }
+.head-text .sub { margin-bottom: 0; }
+.plus-btn {
+  display: inline-flex; align-items: center; gap: 8px; flex: none;
+  background: #0f172a; color: #fff; border: 0; border-radius: 10px;
+  padding: 10px 16px; font-weight: 800; font-size: 13.5px; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, .18); transition: .15s;
+}
+.plus-btn:hover { background: #1e293b; transform: translateY(-1px); }
+.plus-btn:active { transform: translateY(0); }
+
+.register-card { padding: 18px 20px; margin-bottom: 18px; }
+.register-card h2 { font-size: 15px; margin-bottom: 4px; }
+.register-card .reg-sub { color: #64748b; font-size: 13px; line-height: 1.5; margin-bottom: 14px; }
+.reg-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto auto; gap: 10px; align-items: end; }
+.reg-field label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #64748b; font-weight: 700; margin-bottom: 5px; }
+.reg-field input {
+  width: 100%; border: 1px solid #cbd5e1; border-radius: 9px; background: #fff;
+  padding: 10px 12px; font-size: 14px; color: #0f172a; outline: none; transition: .15s;
+}
+.reg-field input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14, 165, 233, .15); }
+.reg-save {
+  border: 0; border-radius: 9px; background: #0f172a; color: #fff;
+  padding: 10px 18px; font-weight: 800; font-size: 13.5px; cursor: pointer; transition: .15s;
+}
+.reg-save:hover { background: #1e293b; }
+.reg-save:disabled { opacity: .5; cursor: wait; }
+.reg-cancel {
+  border: 1px solid #cbd5e1; border-radius: 9px; background: #fff; color: #475569;
+  padding: 10px 16px; font-weight: 700; font-size: 13.5px; cursor: pointer; transition: .15s;
+}
+.reg-cancel:hover { border-color: #94a3b8; color: #0f172a; }
+.reg-msg { margin-top: 10px; font-size: 13px; font-weight: 600; }
+.reg-msg.err { color: #dc2626; }
+.reg-msg.ok { color: #059669; }
+@media (max-width: 720px) {
+  .head-row { flex-direction: column; }
+  .plus-btn { align-self: flex-start; }
+  .reg-grid { grid-template-columns: 1fr; }
+  .reg-save, .reg-cancel { width: 100%; }
+}
+
+/* ================= jamali-supportive-background ================= */
+/* Family theme: BOOKKEEPING - ledger paper, ruled lines, margin rule and coins.
+   Supportive background so every page carries the identity of the
+   system it belongs to. Kept subtle; printouts stay plain white. */
+body {
+  background-color: #f7f4ec;
+  background-image:
+    radial-gradient(1100px 420px at 50% -140px, rgba(217,119,6,0.09), rgba(0,0,0,0) 72%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20width%3D%2764%27%20height%3D%2764%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23f7f4ec%27/%3E%3Cg%20stroke%3D%27%230f172a%27%20stroke-opacity%3D%270.055%27%20stroke-width%3D%271%27%3E%3Cline%20x1%3D%270%27%20y1%3D%2721.5%27%20x2%3D%2764%27%20y2%3D%2721.5%27/%3E%3Cline%20x1%3D%270%27%20y1%3D%2742.5%27%20x2%3D%2764%27%20y2%3D%2742.5%27/%3E%3C/g%3E%3Cline%20x1%3D%2716.5%27%20y1%3D%270%27%20x2%3D%2716.5%27%20y2%3D%2764%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.11%27%20stroke-width%3D%271%27/%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%271.3%27%3E%3Ccircle%20cx%3D%2744%27%20cy%3D%2712%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27M44%208.6v6.8%27/%3E%3Ccircle%20cx%3D%2750.5%27%20cy%3D%2750%27%20r%3D%273.4%27/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 64px 64px;
+  background-repeat: no-repeat, repeat;
+}
+@media print { body { background: #fff; } }
+/* =============== end jamali-supportive-background ================ */

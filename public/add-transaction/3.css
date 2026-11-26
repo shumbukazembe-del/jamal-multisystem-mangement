@@ -1,0 +1,91 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { background: #f1f5f9; color: #0f172a; }
+.wrap { padding: 28px 34px; max-width: 960px; margin: 0 auto; }
+h1 { font-size: 24px; margin-bottom: 6px; }
+.sub { color: #64748b; font-size: 14px; margin-bottom: 18px; }
+.back { display: inline-block; margin-bottom: 14px; color: #0ea5e9; text-decoration: none; background: none; border: 0; font-size: 14px; font-weight: 700; cursor: pointer; padding: 0; font-family: inherit; }
+.back:hover { text-decoration: underline; }
+
+ 
+.step { display: none; }
+.step.is-active { display: block; animation: fadein .25s ease; }
+@keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+ 
+.group { margin-bottom: 24px; }
+.group:last-child { margin-bottom: 8px; }
+.group-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.group-head .badge { font-size: 12px; padding: 5px 13px; }
+.group-title { font-size: 17px; line-height: 1.2; }
+.group-count { margin-left: auto; font-size: 12px; font-weight: 800; color: #475569; background: #e2e8f0; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+.group-sub { color: #64748b; font-size: 13.5px; margin-bottom: 12px; }
+
+ 
+.grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 520px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.tile { aspect-ratio: 1 / 1; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 6px 18px rgba(15, 23, 42, .06); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 8px; text-align: center; transition: border-color .15s ease, transform .15s ease; font: inherit; color: inherit; }
+.tile:hover { border-color: #38bdf8; transform: translateY(-2px); }
+.tile-icon { font-size: 26px; line-height: 1; }
+.tile-label { font-size: 13px; font-weight: 700; line-height: 1.25; }
+
+ 
+.badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
+.b-in { background: #dcfce7; color: #15803d; }
+.b-out { background: #fee2e2; color: #b91c1c; }
+.b-neutral { background: #e2e8f0; color: #475569; }
+.b-contra { background: #f3e8ff; color: #7e22ce; }
+
+ 
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 6px 18px rgba(15, 23, 42, .06); }
+.form-card { padding: 22px; max-width: 560px; }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 13px; font-weight: 700; color: #334155; margin-bottom: 6px; }
+.field input { width: 100%; padding: 12px 14px; border: 1px solid #cbd5e1; border-radius: 12px; font-size: 15px; background: #f8fafc; outline: none; font-family: inherit; }
+.field input:focus { border-color: #38bdf8; background: #fff; box-shadow: 0 0 0 3px rgba(56, 189, 248, .18); }
+
+ 
+.seg { display: grid; gap: 10px; max-width: 480px; }
+.seg-3 { grid-template-columns: repeat(3, 1fr); }
+.seg-2 { grid-template-columns: repeat(2, 1fr); }
+.seg-btn { padding: 12px 8px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: border-color .15s ease, box-shadow .15s ease; font-family: inherit; color: inherit; }
+.seg-btn:hover { border-color: #38bdf8; }
+.seg-btn.is-on { border-color: #0ea5e9; background: #f0f9ff; box-shadow: 0 0 0 2px rgba(14, 165, 233, .25); }
+
+.preview { font-size: 13px; color: #475569; background: #f8fafc; border: 1px dashed #e2e8f0; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; min-height: 38px; }
+.form-err { color: #b91c1c; font-size: 13.5px; font-weight: 600; margin-bottom: 12px; }
+.save-btn { width: 100%; padding: 14px; border: 0; border-radius: 12px; background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff; font-size: 15px; font-weight: 800; cursor: pointer; letter-spacing: .3px; font-family: inherit; }
+.save-btn:hover { filter: brightness(1.05); }
+.save-btn:disabled { opacity: .6; cursor: default; }
+
+ 
+.done-card { padding: 40px 22px; text-align: center; max-width: 560px; }
+.done-icon { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: #dcfce7; color: #15803d; font-size: 30px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.done-actions { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+.ghost-btn { padding: 12px 18px; border-radius: 12px; border: 1px solid #cbd5e1; background: #fff; font-weight: 700; font-size: 14px; cursor: pointer; font-family: inherit; color: inherit; }
+.ghost-btn:hover { border-color: #38bdf8; }
+.cta-btn { display: inline-block; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff; text-decoration: none; font-weight: 800; font-size: 14px; }
+
+@media (max-width: 640px) { .wrap { padding: 20px 16px; } }
+
+.tile-units { font-size: 11.5px; color: #64748b; font-weight: 600; }
+#rec-grid { margin-bottom: 20px; }
+.empty { padding: 34px 22px; text-align: center; max-width: 560px; }
+.empty-icon { font-size: 34px; margin-bottom: 10px; }
+.empty-title { font-weight: 800; margin-bottom: 6px; }
+.empty-sub { color: #64748b; font-size: 13.5px; }
+
+/* ================= jamali-supportive-background ================= */
+/* Family theme: BOOKKEEPING - ledger paper, ruled lines, margin rule and coins.
+   Supportive background so every page carries the identity of the
+   system it belongs to. Kept subtle; printouts stay plain white. */
+body {
+  background-color: #f7f4ec;
+  background-image:
+    radial-gradient(1100px 420px at 50% -140px, rgba(217,119,6,0.09), rgba(0,0,0,0) 72%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20width%3D%2764%27%20height%3D%2764%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23f7f4ec%27/%3E%3Cg%20stroke%3D%27%230f172a%27%20stroke-opacity%3D%270.055%27%20stroke-width%3D%271%27%3E%3Cline%20x1%3D%270%27%20y1%3D%2721.5%27%20x2%3D%2764%27%20y2%3D%2721.5%27/%3E%3Cline%20x1%3D%270%27%20y1%3D%2742.5%27%20x2%3D%2764%27%20y2%3D%2742.5%27/%3E%3C/g%3E%3Cline%20x1%3D%2716.5%27%20y1%3D%270%27%20x2%3D%2716.5%27%20y2%3D%2764%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.11%27%20stroke-width%3D%271%27/%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%271.3%27%3E%3Ccircle%20cx%3D%2744%27%20cy%3D%2712%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27M44%208.6v6.8%27/%3E%3Ccircle%20cx%3D%2750.5%27%20cy%3D%2750%27%20r%3D%273.4%27/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 64px 64px;
+  background-repeat: no-repeat, repeat;
+}
+@media print { body { background: #fff; } }
+/* =============== end jamali-supportive-background ================ */

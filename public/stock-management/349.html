@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Management — JAMALI</title>
+<link rel="stylesheet" href="/stock-management/349.css">
+<script type="module" src="/sidebar.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="/business/2">&larr; Business</a>
+  <h1>Stock Management</h1>
+  <p class="sub">Everything stock in one place: register what the business keeps in stock, watch what is present right now, and record every movement in and out. Updates live.</p>
+
+  <div class="mod-grid">
+    <a class="mod" href="/stock-register/348" title="Register every stock item with its Name, the Units Present it starts with, its Buying Price per Package, Units per Package and Unit Selling Price &mdash; everything every other stock module reads.">
+      <span class="mod-ico">📦</span>
+      <span class="mod-label">Stock Register<span class="mod-sub">items &middot; units &middot; prices</span></span>
+    </a>
+    <a class="mod" href="/stock-progress/347" title="The current position of every registered stock &mdash; S/N, Stock Name, Units Present, Unit SP and Package BP, refreshed the moment a Stock Change is saved.">
+      <span class="mod-ico">📈</span>
+      <span class="mod-label">Stock Progress<span class="mod-sub">live units on hand</span></span>
+    </a>
+    <a class="mod" href="/stock-change/346" title="All fourteen stock-change causes in four groups &mdash; pick the cause, pick the stock, enter the quantity as Packages or as Units and save: the stock moves and the transaction is recorded.">
+      <span class="mod-ico">🔄</span>
+      <span class="mod-label">Stock Change<span class="mod-sub">moves stock in &amp; out</span></span>
+    </a>
+    <a class="mod" href="/notification-center/411" title="The notification engine watches every stock's Low Units in the background &mdash; when a sale crosses the threshold an alert lands on the bell, the Business dashboard and the Notification Center, with the SMS text queued for the owner's phone.">
+      <span class="mod-ico">🔔</span>
+      <span class="mod-label">Notification Center<span class="mod-sub">low-stock &amp; payment alerts</span></span>
+    </a>
+  </div>
+</main>
+<script type="module" src="/stock-management/349.js"></script>
+</body>
+</html>

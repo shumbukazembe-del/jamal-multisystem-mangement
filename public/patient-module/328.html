@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient List — JAMALI Health</title>
+<link rel="stylesheet" href="/patient-module/328.css">
+<script type="module" src="/sidebar.js"></script>
+</head>
+<body>
+<main class="wrap">
+
+  
+  <section id="s-list">
+    <a class="back" href="/health/321">&larr; Health</a>
+    <h1>Patient List</h1>
+    <p class="sub">Every victim registered on this account, newest first. Copy the Registration ID with the button beside it — the pen and the bin at the end of a row edit or delete that patient and everything saved for them.</p>
+    <p class="p-boot" id="p-boot" hidden></p>
+    <p class="p-err" id="p-err" hidden></p>
+
+    <div class="card">
+      <h2>All patients</h2>
+      <div class="empty" id="p-empty">
+        <div class="empty-icon">🗂️</div>
+        <div class="empty-title">No patients registered yet</div>
+        <div class="empty-sub">Register victims on the Registration page — every one of them then appears here, newest first.</div>
+      </div>
+      <div class="table-wrap" id="p-wrap" hidden>
+        <table class="bk">
+          <thead>
+            <tr><th>Registration ID</th><th>Patient</th><th>Age · Sex</th><th>Phone</th><th>Arrived</th><th>Priority</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="p-body"></tbody>
+        </table>
+      </div>
+      <p class="count-line" id="p-count"></p>
+    </div>
+  </section>
+
+</main>
+
+
+<div class="modal-ovl" id="m-wrap" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <h2 id="m-title">Edit patient</h2>
+    <p class="mini-note" id="m-sub"></p>
+    <div class="m-grid">
+
+      <label>Full Name
+        <input id="m-name" type="text" placeholder="Victim's full name">
+      </label>
+      <label>Date of Birth
+        <input id="m-dob" type="date">
+      </label>
+      <label>Age (automatic)
+        <input id="m-age" type="text" readonly placeholder="—">
+      </label>
+      <label>Sex
+        <select id="m-sex">
+          <option value="">— Select —</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </label>
+
+      <label>Phone Number
+        <input id="m-phone" type="tel" placeholder="e.g. 0712 345 678">
+      </label>
+      <label>Address and Location
+        <input id="m-address" type="text" placeholder="Village, street, landmark">
+      </label>
+      <label>Emergency Contact / Next of Kin
+        <input id="m-kin" type="text" placeholder="Contact name and phone">
+      </label>
+      <label>Arrival Date &amp; Time
+        <input id="m-arrival" type="datetime-local">
+      </label>
+
+      <label>Incident Type
+        <select id="m-incident">
+          <option value="">— Select —</option>
+          <option>Road Accident</option>
+          <option>Physical Assault</option>
+          <option>Burn</option>
+          <option>Fall</option>
+          <option>Poisoning</option>
+          <option>Workplace Accident</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Incident Description
+        <textarea id="m-desc" rows="2" placeholder="Brief description of what happened"></textarea>
+      </label>
+      <label>Hospital Department
+        <select id="m-dept">
+          <option value="">— Select —</option>
+          <option>Emergency Department</option>
+          <option>Outpatient Department (OPD)</option>
+          <option>Inpatient Department</option>
+          <option>Surgery</option>
+          <option>Maternity</option>
+          <option>Intensive Care Unit (ICU)</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Emergency Priority
+        <select id="m-priority">
+          <option value="">— Select —</option>
+          <option>Critical</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+      </label>
+
+      <label>Referral Information
+        <select id="m-referral">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+      </label>
+      <label>Insurance / Payment
+        <select id="m-payment">
+          <option value="">— Select —</option>
+          <option>Insurance</option>
+          <option>Cash</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label id="m-facility-label" hidden>Referring Facility
+        <input id="m-facility" type="text" placeholder="Name of the referring facility">
+      </label>
+
+    </div>
+
+    <p class="form-err" id="m-err" hidden></p>
+    <p class="form-ok" id="m-ok" hidden>Saved — the list is updated.</p>
+    <div class="form-actions">
+      <button class="btn-primary" id="m-save" type="button">Save Changes</button>
+      <button class="btn-ghost" id="m-cancel" type="button">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+ 
+(function () {
+  var boot = document.getElementById("p-boot");
+  if (boot) {
+    boot.hidden = false;
+    boot.textContent = "Patient List \u00b7 build 46d \u00b7 connecting\u2026";
+  }
+  window.__p46html = { build: "46d", t0: Date.now() };
+})();
+ 
+function __jamaliPerr(msg) {
+  var box = document.getElementById("p-err");
+  if (!box || !box.hidden) return;
+  box.hidden = false;
+  box.textContent = "Page error \u2014 " + msg;
+}
+window.addEventListener("error", function (e) {
+  if (!e || !e.message) return;  
+  __jamaliPerr(e.message);
+}, true);
+window.addEventListener("unhandledrejection", function (e) {
+  var r = e && e.reason;
+  __jamaliPerr(String((r && (r.code || r.message)) || r || "unknown rejection"));
+});
+ 
+setTimeout(function () {
+  var boot = document.getElementById("p-boot");
+  var s = window.__p46 || {};
+  if (!boot || boot.hidden || s.regDocs >= 0) return;  
+  var bits = [];
+  bits.push("build " + (s.build || "46d") + " script " +
+    ((s.auth === true || s.listeners > 0) ? "ran" : "DID NOT run"));
+  bits.push("sign-in check " + (s.auth === true ? "passed" : "not passed"));
+  bits.push("listeners " + (s.listeners || 0) + "/6");
+  bits.push("Firestore " + (s.regDocs >= 0 ? "answered " + s.regDocs + " document(s)" : "never answered"));
+  if (s.errs && s.errs.length) bits.push("errors: " + s.errs.join(" | "));
+  __jamaliPerr("Still empty after 12 seconds \u2014 " + bits.join(" \u00b7 ") +
+    ". If the script DID NOT run, the deployed 328.js is stale or broken: " +
+    "re-run the task file, git push, then hard refresh with Ctrl+Shift+R.");
+}, 12000);
+</script>
+<script type="module" src="/patient-module/328.js"></script>
+</body>
+</html>

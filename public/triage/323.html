@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triage — JAMALI Health</title>
+<link rel="stylesheet" href="/triage/323.css">
+<script type="module" src="/sidebar.js"></script>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="h-boot" id="h-boot" hidden></p>
+  <p class="h-err" id="h-err" hidden></p>
+
+  
+  <section id="step-form">
+    <a class="back" href="/health/321">&larr; Health</a>
+    <h1>Triage</h1>
+    <p class="sub">The stage after registration: assess the victim's condition and decide how urgently medical attention is needed. Triage orders the care &mdash; it does not replace the doctor's diagnosis or the nurse's consultation.</p>
+
+    <div class="flow-ribbon">Registration <span class="arr">&rarr;</span> <b>Triage</b> <span class="arr">&rarr;</span> Nurse or Doctor consultation, according to the victim's needs</div>
+
+    <div class="urgent-note">🚨 Emergency treatment must not be delayed while completing this form.</div>
+
+        <div class="card" id="qa-card">
+      <h2>Queue &amp; announcements</h2>
+      <div class="qa-counts">
+        <div class="qa-count"><span class="qa-num" id="qa-waiting">0</span><span class="qa-k">Patients waiting</span></div>
+        <div class="qa-count"><span class="qa-num" id="qa-done">0</span><span class="qa-k">Completed today</span></div>
+      </div>
+      <div class="qa-panels">
+        <div class="qa-panel" id="qa-current-box">
+          <div class="qa-k">Current patient</div>
+          <div class="qa-id" id="qa-current-id">&mdash;</div>
+          <div class="qa-sub" id="qa-current-sub"></div>
+        </div>
+        <div class="qa-panel">
+          <div class="qa-k">Next patient</div>
+          <div class="qa-id" id="qa-next-id">&mdash;</div>
+          <div class="qa-sub" id="qa-next-sub"></div>
+          <div class="qa-sub" id="qa-dest-line"></div>
+          <div class="qa-btns">
+            <button type="button" class="ghost-btn qa-announce" id="qa-announce" disabled>&#128266; Announce patient</button>
+            <button type="button" class="ghost-btn" id="qa-start" disabled>Start assessment</button>
+          </div>
+          <p class="mini-note" id="qa-note"></p>
+        </div>
+      </div>
+      <div class="qa-actions"><button type="button" class="ghost-btn" id="qa-settings-btn">&#128266; Speaker settings</button></div>
+      
+    </div>
+
+<div class="card add-card">
+      <div class="form-grid">
+
+        <label>Registration ID
+          <input id="t-regid" list="regids" placeholder="e.g. 4827ABCD" autocomplete="off">
+          <datalist id="regids"></datalist>
+          <span class="victim-line" id="t-victim"></span>
+        </label>
+        <label>Assessment Date &amp; Time (automatic)
+          <input id="t-when" type="datetime-local" readonly>
+        </label>
+        <label>Symptoms and Complaints
+          <textarea id="t-symptoms" rows="2" placeholder="What the victim is experiencing"></textarea>
+        </label>
+
+      </div>
+
+      <div class="vitals-card">
+        <h3>Vital Signs</h3>
+        <div class="vitals-grid">
+          <label>Temperature (&deg;C)
+            <input id="t-temp" type="number" inputmode="decimal" step="0.1" min="25" max="45" placeholder="36.8">
+          </label>
+          <label>Pulse Rate (bpm)
+            <input id="t-pulse" type="number" inputmode="numeric" min="0" placeholder="72">
+          </label>
+          <label>Respiratory Rate (/min)
+            <input id="t-rr" type="number" inputmode="numeric" min="0" placeholder="16">
+          </label>
+          <label>Blood Pressure (mmHg)
+            <input id="t-bp" type="text" inputmode="numeric" placeholder="120/80">
+          </label>
+          <label title="Oxygen saturation">SpO₂ (%)
+            <input id="t-spo2" type="number" inputmode="numeric" min="0" max="100" placeholder="98">
+          </label>
+        </div>
+      </div>
+
+      <div class="form-grid">
+
+        <label>Level of Consciousness
+          <select id="t-conscious">
+            <option value="">— Select —</option>
+            <option>Alert</option>
+            <option>Responds to voice</option>
+            <option>Responds to pain only</option>
+            <option>Unresponsive</option>
+          </select>
+        </label>
+        <label>Pain Level (0 to 10)
+          <span class="pain-row">
+            <input id="t-pain" type="range" min="0" max="10" step="1" value="0">
+            <output id="t-pain-out">0</output>
+          </span>
+        </label>
+        <label>Emergency Priority
+          <select id="t-priority">
+            <option value="">— Select —</option>
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+          <span class="mini-note">Set by the hospital's approved triage protocol.</span>
+        </label>
+
+        <label>Visible Injuries or Condition
+          <textarea id="t-injuries" rows="2" placeholder="Injuries or abnormalities observed"></textarea>
+        </label>
+        <label>Allergies
+          <input id="t-allergies" type="text" placeholder="Known allergies, if any">
+        </label>
+        <label>Existing Medical Conditions
+          <input id="t-conditions" type="text" placeholder="Relevant medical history, if any">
+        </label>
+
+        <label class="span2">Triage Notes
+          <textarea id="t-notes" rows="2" placeholder="Additional observations from the assessment"></textarea>
+        </label>
+        <label>Assessed By
+          <span class="staff-row">
+            <select id="t-staff"></select>
+            <button type="button" class="staff-add" id="t-staff-add" title="Add a healthcare worker to this device's list">＋</button>
+          </span>
+        </label>
+
+      </div>
+
+      <p class="form-err" id="t-err" hidden></p>
+      <div class="form-actions">
+        <button class="btn-primary" id="t-save" type="button">Save Triage Assessment</button>
+        <button class="btn-ghost" id="t-clear" type="button">Clear Form</button>
+      </div>
+    </div>
+
+    <div class="card people-card" id="t-history-card">
+      <h2>Triage history</h2>
+      <div class="empty" id="t-empty">
+        <div class="empty-icon">🚑</div>
+        <div class="empty-title">No assessments yet</div>
+        <div class="empty-sub">The first assessment saved on this account will appear here, linked to its registration.</div>
+      </div>
+      <div class="table-wrap" id="t-table-wrap" hidden>
+        <table class="bk">
+          <thead>
+            <tr><th>When</th><th>Registration ID</th><th>Victim</th><th>Priority</th><th>Consciousness</th><th>Pain</th><th>Vitals</th><th>Assessed By</th></tr>
+          </thead>
+          <tbody id="t-history"></tbody>
+        </table>
+      </div>
+      <p class="count-line" id="t-count"></p>
+    </div>
+  </section>
+
+  
+  <section id="step-done" hidden>
+    <div class="card done-card">
+      <div class="done-icon">&#10003;</div>
+      <h1>Triage Saved</h1>
+      <p class="sub" id="done-note"></p>
+      <div class="id-box">
+        <span class="id-k">Linked Registration ID</span>
+        <span class="id-v" id="done-regid"></span>
+      </div>
+      <div class="done-actions">
+        <button class="ghost-btn" id="again-btn" type="button">Assess Another</button>
+        <a class="cta-btn" href="/victim-registration/322">Register a Victim</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<style>
+#h-boot,#h-err{max-width:920px;margin:0 auto 14px;padding:10px 14px;border-radius:10px;font-size:14px;line-height:1.55}
+#h-boot{background:#fff7e0;color:#6b4e00;border:1px solid #e8d48a}
+#h-err{background:#fdecec;color:#8a1f1f;border:1px solid #f2b8b5}
+
+ 
+#qa-card .qa-counts{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 14px}
+.qa-count{display:flex;flex-direction:column;min-width:130px;padding:10px 14px;border:1px solid #e3e0d6;border-radius:10px;background:#faf9f4}
+.qa-num{font-size:26px;font-weight:700;line-height:1.1}
+.qa-count .qa-k{font-size:12px;color:#6b675c;margin-top:2px}
+.qa-panels{display:flex;gap:14px;flex-wrap:wrap}
+.qa-panel{flex:1 1 240px;border:1px solid #e3e0d6;border-radius:10px;padding:12px 14px;background:#fff}
+.qa-panel .qa-k{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#6b675c}
+.qa-id{font-size:22px;font-weight:700;letter-spacing:.04em;margin:4px 0 2px}
+.qa-panel.qa-none{opacity:.8}
+.qa-sub{font-size:13px;color:#4b473c;margin:2px 0}
+.qa-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.qa-actions{margin-top:12px}
+.qa-settings{border-top:1px dashed #ddd8c9;margin-top:12px;padding-top:12px}
+.qa-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:8px 0}
+.qa-form label{display:block;font-size:13px;color:#4b473c}
+.qa-form input{width:100%;margin-top:4px;padding:8px 10px;border:1px solid #d8d3c4;border-radius:8px;font:inherit;background:#fff}
+</style>
+<script>
+ 
+(function () {
+  var boot = document.getElementById("h-boot");
+  if (boot) { boot.hidden = false; boot.textContent = "Triage \u00b7 build 53 \u00b7 connecting\u2026"; }
+  window.__p47 = { page: "323", build: "47", t0: Date.now() };
+})();
+function __jamaliHerr(msg) {
+  var box = document.getElementById("h-err");
+  var boot = document.getElementById("h-boot");
+  if (boot) boot.hidden = true;
+  if (!box || !box.hidden) return;
+  box.hidden = false;
+  box.textContent = "Page error \u2014 " + msg;
+}
+window.addEventListener("error", function (e) {
+  if (!e || !e.message) return;  
+  __jamaliHerr(e.message);
+}, true);
+window.addEventListener("unhandledrejection", function (e) {
+  var r = e && e.reason;
+  __jamaliHerr(String((r && (r.code || r.message)) || r || "unknown rejection"));
+});
+setTimeout(function () {
+  var boot = document.getElementById("h-boot");
+  var s = window.__p47 || {};
+  if (!boot || boot.hidden) return;  
+  var bits = [];
+  bits.push("build " + (s.build || "47") + " script " +
+    ((s.ran === true || s.listeners > 0) ? "ran" : "DID NOT run"));
+  bits.push("sign-in check " + (s.auth === true ? "passed" : "not passed"));
+  bits.push("listeners " + (s.listeners || 0) + "/" + (s.need || 0));
+  bits.push(s.answered === true ? "Firestore answered" : "Firestore never answered");
+  if (s.errs && s.errs.length) bits.push("errors: " + s.errs.join(" | "));
+  __jamaliHerr("Still quiet after 12 seconds \u2014 " + bits.join(" \u00b7 ") +
+    ". If the script DID NOT run, the deployed JS is stale or broken: " +
+    "re-run the task file, git push, then hard refresh with Ctrl+Shift+R.");
+}, 12000);
+</script>
+<script type="module" src="/triage/323.js"></script>
+</body>
+</html>

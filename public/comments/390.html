@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comments — JAMALI</title>
+<link rel="stylesheet" href="/comments/390.css">
+<script type="module" src="/sidebar.js"></script>
+</head>
+<body>
+  <main class="wrap">
+    <a class="back" href="/home/1">&larr; Home</a>
+    <h1>💬 Comments</h1>
+    <p class="sub">The mailbox on its own page — every comment a visitor sends lands here, newest first. Visitors write from the Comment button on any page; the mailbox carries no send setup.</p>
+
+    <section class="card owner" id="owner-gate" hidden>
+      <div class="card-head">
+        <b>&#128274; The mailbox</b>
+      </div>
+      <p class="owner-note" id="gate-text"></p>
+      <button type="button" class="send" id="owner-signin-btn">Sign in with Google</button>
+      <div class="msg" id="gate-msg" hidden></div>
+    </section>
+
+    <section class="card owner" id="mailbox-card" hidden>
+      <div class="card-head">
+        <button type="button" class="refresh" id="refresh-btn">Refresh</button>
+      </div>
+      <div class="count-line" id="mailbox-count">loading&#8230;</div>
+      <div class="msg" id="mailbox-msg" hidden></div>
+      <div class="list" id="mailbox-items"></div>
+    </section>
+  </main>
+  <script type="module" src="/comments/390.js"></script>
+</body>
+</html>

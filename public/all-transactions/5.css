@@ -1,0 +1,94 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { background: #f1f5f9; color: #0f172a; }
+.wrap { padding: 28px 34px; max-width: 1100px; margin: 0 auto; }
+.back { display: inline-block; color: #64748b; text-decoration: none; font-weight: 700; font-size: 13.5px; margin-bottom: 14px; }
+.back:hover { color: #0ea5e9; }
+h1 { font-size: 24px; margin-bottom: 6px; }
+.sub { color: #64748b; font-size: 14px; margin-bottom: 18px; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 6px 18px rgba(15, 23, 42, .06); }
+
+ 
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.tab { padding: 9px 14px; border: 1px solid #e2e8f0; border-radius: 11px; background: #fff; font-size: 13px; font-weight: 700; color: #334155; cursor: pointer; transition: border-color .15s ease, box-shadow .15s ease; font-family: inherit; }
+.tab:hover { border-color: #38bdf8; }
+.tab .n { display: inline-block; min-width: 20px; padding: 1px 6px; margin-left: 4px; border-radius: 999px; background: #f1f5f9; color: #64748b; font-size: 11px; text-align: center; }
+.tab.is-active { border-color: #0ea5e9; background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff; box-shadow: 0 4px 12px rgba(14, 165, 233, .3); }
+.tab.is-active .n { background: rgba(255, 255, 255, .25); color: #fff; }
+
+ 
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 780px; }
+thead th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #64748b; padding: 13px 14px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+tbody td { padding: 13px 14px; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #f8fafc; }
+.c-name { font-weight: 700; }
+.c-when { white-space: nowrap; color: #475569; }
+.col-amount, .c-amount { text-align: right; }
+.c-amount { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+ 
+.badge { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .04em; white-space: nowrap; }
+.b-in { background: #dcfce7; color: #15803d; }
+.b-out { background: #fee2e2; color: #b91c1c; }
+.b-neutral { background: #e2e8f0; color: #475569; }
+.b-contra { background: #f3e8ff; color: #7e22ce; }
+.b-charge { background: #fef3c7; color: #b45309; margin-left: 6px; }
+
+ 
+.empty { padding: 46px 20px; text-align: center; }
+.empty-icon { font-size: 34px; margin-bottom: 10px; }
+.empty-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; }
+.empty-sub { color: #64748b; font-size: 14px; }
+.empty-sub a { color: #0ea5e9; font-weight: 700; text-decoration: none; }
+.empty-sub a:hover { text-decoration: underline; }
+
+.count-line { color: #94a3b8; font-size: 12.5px; margin-top: 12px; }
+
+/* Toolbar: the filter tabs and the green Summary button sit on one row */
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.toolbar .tabs { margin-bottom: 0; }
+.tabs[hidden] { display: none; }
+.summary-btn { padding: 9px 18px; border: 1px solid #16a34a; border-radius: 11px; background: linear-gradient(135deg, #16a34a, #22c55e); color: #fff; font-size: 13px; font-weight: 800; letter-spacing: .02em; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(22, 163, 74, .28); transition: filter .15s ease, transform .15s ease; white-space: nowrap; }
+.summary-btn:hover { filter: brightness(1.06); }
+.summary-btn:active { transform: translateY(1px); }
+.summary-btn.is-active { background: linear-gradient(135deg, #15803d, #16a34a); }
+
+/* The financial summary view - same page, the table swaps for six cards */
+.summary-view { margin-top: 6px; }
+.summary-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.summary-title { font-size: 18px; margin-bottom: 2px; }
+.summary-sub { color: #64748b; font-size: 13px; }
+.summary-back { padding: 8px 14px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; font-size: 13px; font-weight: 700; color: #334155; cursor: pointer; font-family: inherit; transition: border-color .15s ease, color .15s ease; }
+.summary-back:hover { border-color: #38bdf8; color: #0ea5e9; }
+.summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.summary-card { background: #fff; border: 1px solid #e2e8f0; border-top-width: 3px; border-radius: 14px; box-shadow: 0 6px 18px rgba(15, 23, 42, .06); padding: 16px 18px; }
+.sc-label { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: #64748b; font-weight: 800; display: flex; align-items: center; gap: 7px; }
+.sc-icon { font-size: 14px; }
+.sc-value { font-size: 25px; font-weight: 800; margin-top: 8px; color: #0f172a; font-variant-numeric: tabular-nums; word-break: break-word; line-height: 1.15; }
+.sc-note { color: #94a3b8; font-size: 12px; margin-top: 6px; }
+.sc-income { border-top-color: #22c55e; }
+.sc-outstanding { border-top-color: #f59e0b; }
+.sc-cash { border-top-color: #0ea5e9; }
+.sc-bank { border-top-color: #6366f1; }
+.sc-debit { border-top-color: #334155; }
+.sc-credit { border-top-color: #94a3b8; }
+.summary-line { color: #94a3b8; font-size: 12.5px; margin-top: 14px; }
+@media (max-width: 860px) { .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .summary-grid { grid-template-columns: 1fr; } .sc-value { font-size: 21px; } }
+@media (max-width: 640px) { .wrap { padding: 20px 14px; } }
+
+/* ================= jamali-supportive-background ================= */
+/* Family theme: BOOKKEEPING - ledger paper, ruled lines, margin rule and coins.
+   Supportive background so every page carries the identity of the
+   system it belongs to. Kept subtle; printouts stay plain white. */
+body {
+  background-color: #f7f4ec;
+  background-image:
+    radial-gradient(1100px 420px at 50% -140px, rgba(217,119,6,0.09), rgba(0,0,0,0) 72%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http://www.w3.org/2000/svg%27%20width%3D%2764%27%20height%3D%2764%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20fill%3D%27%23f7f4ec%27/%3E%3Cg%20stroke%3D%27%230f172a%27%20stroke-opacity%3D%270.055%27%20stroke-width%3D%271%27%3E%3Cline%20x1%3D%270%27%20y1%3D%2721.5%27%20x2%3D%2764%27%20y2%3D%2721.5%27/%3E%3Cline%20x1%3D%270%27%20y1%3D%2742.5%27%20x2%3D%2764%27%20y2%3D%2742.5%27/%3E%3C/g%3E%3Cline%20x1%3D%2716.5%27%20y1%3D%270%27%20x2%3D%2716.5%27%20y2%3D%2764%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.11%27%20stroke-width%3D%271%27/%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d97706%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%271.3%27%3E%3Ccircle%20cx%3D%2744%27%20cy%3D%2712%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27M44%208.6v6.8%27/%3E%3Ccircle%20cx%3D%2750.5%27%20cy%3D%2750%27%20r%3D%273.4%27/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 64px 64px;
+  background-repeat: no-repeat, repeat;
+}
+@media print { body { background: #fff; } }
+/* =============== end jamali-supportive-background ================ */
